@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import firebase from "../../firebase";
 
@@ -26,9 +26,32 @@ function Home() {
   const [lastName, setLastName] = useState("");
   const [birthDate, setBirthDate] = useState("");
 
+  useEffect(() => {
+    const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
+      if (!user) {
+        navigate("/");
+        return;
+      }
+
+      firebase
+        .firestore()
+        .collection("users")
+        .doc(user.uid)
+        .get()
+        .then((doc) => {
+          if (doc.exists) {
+            setFirstName(doc.data().firstName);
+            setLastName(doc.data().lastName);
+            setBirthDate(doc.data().birthDate);
+          }
+        });
+    });
+
+    return () => unsubscribe();
+  }, [navigate]);
+
   const logout = async () => {
     await firebase.auth().signOut();
-    navigate("/login");
   };
 
   return (

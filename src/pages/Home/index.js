@@ -55,20 +55,20 @@ function Home() {
   };
 
   return (
-    <div>
+    <div className="page">
       <h1>
         Bem-vindo, {firstName} {lastName}!
       </h1>
 
-      <div>
+      <div className="field">
         <label htmlFor="firstName">Nome</label>
         <input id="firstName" type="text" value={firstName} readOnly />
       </div>
-      <div>
+      <div className="field">
         <label htmlFor="lastName">Sobrenome</label>
         <input id="lastName" type="text" value={lastName} readOnly />
       </div>
-      <div>
+      <div className="field">
         <label htmlFor="birthDate">Data de Nascimento</label>
         <input
           id="birthDate"
@@ -77,7 +77,7 @@ function Home() {
           readOnly
         />
       </div>
-      <div>
+      <div className="field">
         <label htmlFor="age">Idade</label>
         <input id="age" type="text" value={calculateAge(birthDate)} readOnly />
       </div>

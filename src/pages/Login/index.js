@@ -18,7 +18,7 @@ function Login() {
   };
 
   return (
-    <div>
+    <div className="page">
       <h1>Login</h1>
 
       <input

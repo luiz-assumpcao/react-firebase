@@ -5,7 +5,7 @@ function Menu() {
   const navigate = useNavigate();
 
   return (
-    <div>
+    <div className="page">
       <h1>Bem-vindo</h1>
       <button onClick={() => navigate("/register")}>Cadastro</button>
       <button onClick={() => navigate("/login")}>Login</button>

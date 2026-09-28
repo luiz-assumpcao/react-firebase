@@ -41,7 +41,7 @@ function Register() {
   };
 
   return (
-    <div>
+    <div className="page">
       <h1>Cadastro</h1>
 
       <input
@@ -76,7 +76,7 @@ function Register() {
 
       <button onClick={register}>Cadastrar</button>
 
-      {message && <p>{message}</p>}
+      {message && <p className="message">{message}</p>}
     </div>
   );
 }

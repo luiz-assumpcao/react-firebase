@@ -75,6 +75,9 @@ function Register() {
       />
 
       <button onClick={register}>Cadastrar</button>
+      <button className="secondary" onClick={() => navigate("/")}>
+        Voltar
+      </button>
 
       {message && <p className="message">{message}</p>}
     </div>

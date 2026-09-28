@@ -35,8 +35,11 @@ function Login() {
       />
 
       <button onClick={login}>Acessar</button>
+      <button className="secondary" onClick={() => navigate("/")}>
+        Voltar
+      </button>
 
-      {message && <p>{message}</p>}
+      {message && <p className="message">{message}</p>}
     </div>
   );
 }
